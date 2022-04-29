@@ -9,7 +9,7 @@ from IPython.display import clear_output
 
 warnings.filterwarnings("ignore")
 
-#training = "path to test files goes here ex: C:/Users/user/Desktop/test"
+#training = "path to test files goes here ex: C:/Users/user/Desktop/train"
 #testing = "path to test files goes here ex: C:/Users/user/Desktop/test"
 
 training = "C:/Users/Pablo/Desktop/programming/334TFProject/train"
@@ -65,13 +65,13 @@ model.summary()
 
 earlyStoppingCallback = tf.keras.callbacks.EarlyStopping(monitor="val_loss", patience= 3, verbose= 1, restore_best_weights=True)
 
-history = model.fit(x = trainingTheData, epochs = 15, validation_data = creationOfCharts, callbacks= [earlyStoppingCallback])
+history = model.fit(x = trainingTheData, epochs = 1, validation_data = creationOfCharts, callbacks= [earlyStoppingCallback])
 history = pd.DataFrame(history.history)
 
 model.layers[1].trainable = True
 model.compile(optimizer=tf.keras.optimizers.SGD(0.001), loss="categorical_crossentropy", metrics = ["accuracy"])
 
-historyNew = model.fit(x = trainingTheData,epochs = 10,validation_data = creationOfCharts)
+historyNew = model.fit(x = trainingTheData,epochs = 1,validation_data = creationOfCharts)
 history = history.append(pd.DataFrame(historyNew.history), ignore_index=True)
 
 model.evaluate(testingTheData)
