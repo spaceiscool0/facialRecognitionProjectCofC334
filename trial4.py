@@ -9,11 +9,9 @@ from IPython.display import clear_output
 
 warnings.filterwarnings("ignore")
 
-#training = "path to test files goes here ex: C:/Users/user/Desktop/train"
-#testing = "path to test files goes here ex: C:/Users/user/Desktop/test"
+training = "path to test files goes here ex: C:/Users/user/Desktop/train"
+testing = "path to test files goes here ex: C:/Users/user/Desktop/test"
 
-training = "C:/Users/Pablo/Desktop/programming/334TFProject/train"
-testing = "C:/Users/Pablo/Desktop/programming/334TFProject/test"
 categories  = ["Anger", "Disgust", "Fear", "Happy", "Neutral", "Sadness", "Surprise"]
 
 preprocessing = tf.keras.applications.densenet.preprocess_input
